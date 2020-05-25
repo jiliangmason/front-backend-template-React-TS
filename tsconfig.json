@@ -1,0 +1,37 @@
+// https://www.tslang.cn/docs/handbook/compiler-options.html
+{
+  "compilerOptions": {
+    // 配置编译目标代码的版本标准
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "baseUrl": "./",
+    "paths": { 
+      "*": ["node_modules/*"],       
+      "@/*": ["src/*"],
+      "@@/*": ["src/client/*"]
+    },
+    "typeRoots": ["types/*"],
+    "allowJs": true,
+    "watch": true, //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
+    //"rootDir": "./src/server", //仅用来控制输出的目录结构--outDir。
+    "outDir": "dist/server", //重定向输出目录。   
+    "esModuleInterop": true, //设置es模块化导出commonjs模块化代码
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    // 配置编译目标使用的模块化标准
+    "module": "commonjs",
+    //https://github.com/ant-design/ant-design/issues/8642 配置解析模块的模式
+    "moduleResolution": "node",
+    "jsx": "react"
+  },
+  // 影响 webpack 构建
+  "include": ["src/server", "types"],
+  "exclude": ["node_modules", "dist", "build"]
+}
