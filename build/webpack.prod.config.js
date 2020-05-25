@@ -19,6 +19,30 @@ const prodConfig = {
     rules: [
       {
         test: /\.less$/,
+        exclude: /node_modules/, // 非node_modules走css module
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]",
+              },	
+              sourceMap: true,
+              importLoaders: 1,
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
