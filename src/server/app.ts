@@ -4,7 +4,6 @@ import serve from 'koa-static';
 import koaBody from 'koa-body';
 import koaLogger from 'koa-logger';
 import session from 'koa-session';
-import sso from '@ks/koa2-sso';
 import cors from 'koa2-cors';
 import config from './config';
 import loggerMiddleware, { loggerErr } from './middleware/logger';
@@ -24,8 +23,6 @@ app.use(error);
 app.use(session(app));
 // body解析
 app.use(koaBody());
-// sso鉴权
-app.use(sso(config.defaultSsoConfig));
 // cookie验证，可选
 app.use(validateMiddleware({
   whiteList: ['/api/logout'],

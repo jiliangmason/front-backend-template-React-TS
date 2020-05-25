@@ -21,7 +21,7 @@ const devConfig = {
     port: 8088,
     // 代理服务器端域名
     proxy: {
-      '/api': 'http://test.corp.kuaishou.com:8082'
+      '/api': 'localhost:8082'
     },
     disableHostCheck: true,
   },
